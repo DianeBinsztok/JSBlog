@@ -5,7 +5,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
+
+    <!--<script type="text/javascript" src="./node_modules/babel-polyfill/dist/polyfill.js"></script>
+    <script type="module" src="./node_modules/wikiquote-api/dist/WikiquoteApi.module.mjs"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="script.js"></script>
     <title>Jeet Kune Do Blog</title>
 </head>
@@ -29,14 +32,18 @@
                 </li>
             </ul>
         </nav>
+    </header>
+    <main>
 
-        <main>
-            Here's my blog's content
-        </main>
+        <div id="content">
+            <h3>Here's my blog's content:</h3>
+        </div>
 
-        <footer>
-            <p>Diane Binsztok 2022 - Be water my friends!</p>
-        </footer>
+    </main>
+
+    <footer>
+        <p>Diane Binsztok 2022 - Be water my friends!</p>
+    </footer>
 </body>
 
 </html>
