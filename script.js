@@ -5,6 +5,8 @@ $(document).ready(function () {
    
    // Pour rafraichir le feed:
     function reload() {
+
+        // requête à l'API
         const request = $.ajax({
             url: src,
             method: "GET",
@@ -34,8 +36,9 @@ $(document).ready(function () {
     
                 i++;
             }
-        }).fail(function(error){
-            alert("La requête s'est terminée en échec. Infos : " + JSON.stringify(error));
+        }).fail(function (error) {
+            let failMsg = $("<h3").text("La requête s'est terminée en échec. Infos : " + JSON.stringify(error));
+            $("content").failMsg;
         }).always(function(){
             console.log("Requête effectuée");
         });;

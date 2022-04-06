@@ -5,6 +5,7 @@
 }
 
 body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -36,7 +37,12 @@ nav a{
 }
 
 main{
+    height: 100vh;
     color: black;
+    display: flex;
+    background-color: beige;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 #content{
