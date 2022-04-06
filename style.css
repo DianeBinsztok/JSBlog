@@ -11,6 +11,8 @@ body{
     justify-content: space-between;
     width: fit-content;
     height: 100vh;
+    background-color: beige;
+
 }
 
 header{
@@ -37,10 +39,8 @@ nav a{
 }
 
 main{
-    height: 100vh;
     color: black;
     display: flex;
-    background-color: beige;
     flex-direction: column;
     justify-content: flex-start;
 }
@@ -64,7 +64,21 @@ main{
     margin-top: 1em;
 
 }
-
+.list_item{
+    justify-content: space-between;
+    max-width: 90%;
+    padding:1em;
+    margin:1em;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: rgba(255, 211, 16, 0.6);
+    
+    }
+    .list_item img{
+        display: block;
+        align-items: center;
+        max-width: 10em;
+    }
 footer{
 
     background-color: rgb(46, 46, 46);
@@ -81,21 +95,7 @@ footer p{
     padding: 1.5em;
 }
 
-.list_item{
-justify-content: space-between;
-max-width: 90%;
-padding:1em;
-margin:1em;
-border: 1px solid grey;
-border-radius: 5px;
-background-color: rgba(255, 211, 16, 0.6);
 
-}
-.list_item img{
-    display: block;
-    align-items: center;
-    max-width: 10em;
-}
 
 @media screen and (min-width: 350px) {
     header{

@@ -27,6 +27,7 @@ $(document).ready(function () {
     
                 // Je génère un post
                 let newPost = generatePost(item);
+                
                 // J'ajoute une image
                 let postImg = $("<img>").attr("src", "./img/" + i + ".jpg");
                 
