@@ -48,6 +48,7 @@ main{
     flex-direction: column;
     width: fit-content;
     align-items: center;
+    margin: auto;
     justify-content: space-between;
 }
 #refresh_button{
@@ -126,7 +127,9 @@ margin-right: 3em;
     #content_head{
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-between;
+        align-items: center;
+        margin: auto;
     }
 
     #content_head h3{
