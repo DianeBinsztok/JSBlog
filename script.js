@@ -49,22 +49,5 @@ $(document).ready(function () {
     }).always(function(){
         console.log("Requête effectuée");
     });;
-    
-
-    /*
-    // 2e essai:
-     const test = 'https://en.wikiquote.org/w/api.php?action=parse&format=json&page=Bruce%20Lee';
-    //console.log(test);
-    const requestTest = $.ajax({
-        url: test,
-        method: "GET",
-        dataType:"json",
-    }).done(function (response) {
-        console.log(response.parse.text);
-        document.getElementById("content").append(response.parse.title);
-        const data = response.parse.text;
-        document.getElementById("content").append(response.parse.text["*"]);
-    });
-    */
 });
 
