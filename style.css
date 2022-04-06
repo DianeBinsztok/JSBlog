@@ -8,8 +8,8 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: fit-content;
     height: 100vh;
-    width: max-content;
 }
 
 header{
@@ -43,15 +43,19 @@ main{
     max-width: 100%;
 }
 #content_head{
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
+    width: fit-content;
     align-items: center;
+    justify-content: space-between;
 }
 #refresh_button{
-    border: 1px solid grey;
+    border: 1px solid rgb(153, 153, 153);
     background-color: rgba(255, 211, 16, 0.6);
-    margin: 2em;
     padding: 1em;
+    margin-top: 1em;
+
 }
 
 footer{
@@ -60,6 +64,7 @@ footer{
     align-items: center;
     height: 60px;
     width: 100vw;
+    bottom: 0;
     color: yellow;
 }
 footer p{
@@ -71,12 +76,13 @@ footer p{
 
 .list_item{
 justify-content: space-between;
-max-width: 100%;
+max-width: 90%;
 padding:1em;
 margin:1em;
 border: 1px solid grey;
 border-radius: 5px;
 background-color: rgba(255, 211, 16, 0.6);
+
 }
 .list_item img{
     display: block;
@@ -111,7 +117,11 @@ background-color: rgba(255, 211, 16, 0.6);
 
     .list_item{
         display: flex;
-        justify-content: space-around;
+        justify-content: flex-start;
+        padding: 1em;
+    }
+    .list_item img{
+margin-right: 3em;
     }
     #content_head{
         display: flex;

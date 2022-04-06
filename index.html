@@ -9,7 +9,7 @@
     <!--<script type="text/javascript" src="./node_modules/babel-polyfill/dist/polyfill.js"></script>
     <script type="module" src="./node_modules/wikiquote-api/dist/WikiquoteApi.module.mjs"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <title>Jeet Kune Do Blog</title>
 </head>
 
@@ -38,7 +38,7 @@
         <div id="content">
             <div id="content_head">
                 <h3>Here's my blog's content:</h3>
-                <input id="refresh_button" type="button" value="Reload page" onClick="reload">
+                <input id="refresh_button" type="button" value="Refresh feed" onclick="reload()" />
             </div>
         </div>
 
