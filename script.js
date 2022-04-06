@@ -27,7 +27,7 @@ $(document).ready(function () {
     
                 // Je génère un post
                 let newPost = generatePost(item);
-                
+
                 // J'ajoute une image
                 let postImg = $("<img>").attr("src", "./img/" + i + ".jpg");
                 
@@ -38,7 +38,7 @@ $(document).ready(function () {
                 i++;
             }
         }).fail(function (error) {
-            let failMsg = $("<h3").text("La requête s'est terminée en échec. Infos : " + JSON.stringify(error));
+            let failMsg = $("<h3>").text("La requête s'est terminée en échec. Infos : " + JSON.stringify(error));
             $("content").failMsg;
         }).always(function(){
             console.log("Requête effectuée");
