@@ -1,6 +1,11 @@
 const src = "https://chroniclingamerica.loc.gov/search/titles/results/?terms=michigan&format=json&page=5";
 console.log(src);
 
+
+let content = document.getElementById("content");
+let list = document.createElement("ul");
+content.appendChild(list);
+
 // Fonction pour générer un post
 function generatePost(article) {
         //let post = $("<article>").addClass("post");   
@@ -11,39 +16,65 @@ function generatePost(article) {
         //let postTitle = $("<h3>").addClass("post_title").text(article.city[0]);
     let postTitle = document.createElement("h3");
     postTitle.classList.add("post_title");
-    postTitle.innerHTML(article.city[0]);
+    postTitle.innerHTML=article.city[0];
 
         //let postYear = $("<h4>").addClass("post_year").text("Published in: " + article.start_year);
     let postYear = document.createElement("h4");
     postYear.classList.add("post_year");
+    postYear.innerHTML=article.start_year;
         
 
         //let postContent = $("<p>").addClass("post_content").text("Lorem ipsum blabla blablabla blabla blablabla");
     let postContent = document.createElement("p");
     postContent.classList.add("post_content");
+    postContent.innerText = "Article publié a " +article.city + ", en " + article.start_year+ " par "+ article.publisher, "+ ", article.note[0];
 
-    post.appendChild(postTitle, postYear, postContent);
+    post.appendChild(postTitle);
+    post.appendChild(postYear);
+    post.appendChild(postContent);
+
      
     return post;
 }
 
+// fetch().then() peut aussi s'écrire avec asynch().await()
 fetch(src).then(
     function handleResponse(response) {
-        console.log("1 - I handle API's response: ", response);
         // renvoie une promesse: pas encore un résultat
         if (!response.ok) {
-            console.log("2 - if error", response);
             throw new Error(`Erreur ${response.status}: La requête à l' API a échoué.`);
         } else {
-            console.log("3 - If success:", response);
             return response.json();
         }
     }  
 ).then(
-    // catches the return. It must be a .json()
+    // catches the previous return. It must be a .json()
     function returnResponse(data) {
-        console.log("4 - Returns an object: ", data);
-        console.log("e.g.:",data.items[0].place_of_publication);
+        console.log(data.items);
+        let i = 1
+            ;
+        for (item of data.items) {
+
+          // Pour chaque élément du JSON:
+            // Je génère une puce de la liste
+            let listItem = document.createElement("li");
+            listItem.classList.add("list_item");
+
+            // Je génère un post
+            let newPost = generatePost(item);
+            
+            // J'ajoute une image
+            //let postImg = $("<img>").attr("src", "./img/" + i + ".jpg");
+            let postImg = document.createElement("img");
+            postImg.setAttribute("src", `./img/${i}.jpg`);
+
+            listItem.appendChild(postImg);
+            listItem.appendChild(newPost);
+            list.appendChild(listItem);
+
+            i++;
+        }
+
    }
      );
 
