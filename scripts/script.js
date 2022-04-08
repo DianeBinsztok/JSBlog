@@ -1,6 +1,5 @@
 const src =
   "https://chroniclingamerica.loc.gov/search/titles/results/?terms=michigan&format=json&page=5";
-console.log(src);
 
 // Placer le contenu du feed dans la vue
 let content = document.getElementById("content");
@@ -9,7 +8,6 @@ content.appendChild(list);
 
 // Générer un post
 function generatePost(article) {
-  console.log(article);
   //balise <article>
   let post = document.createElement("article");
   post.classList.add("post");
