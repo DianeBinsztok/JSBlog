@@ -144,7 +144,7 @@ footer p{
 
 @media screen and (min-width: 350px) {
     header{
-        background-image: url("./img/4.jpg");
+        background-image: url("../img/4.jpg");
         background-repeat: no-repeat;
         background-position-y: 33%;
         background-size: 100%;

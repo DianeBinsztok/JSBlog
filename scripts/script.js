@@ -2,6 +2,7 @@ const src =
   "https://chroniclingamerica.loc.gov/search/titles/results/?terms=michigan&format=json&page=5";
 console.log(src);
 
+// Placer le contenu du feed dans la vue
 let content = document.getElementById("content");
 let list = document.createElement("ul");
 content.appendChild(list);
@@ -18,22 +19,22 @@ function generatePost(article) {
   postTitle.classList.add("post_title");
   postTitle.innerHTML = article.city[0];
 
-  //<h4> : l'année de parution
+  //<h4> : sous-titre : date et auteur
   let postYear = document.createElement("h4");
   postYear.classList.add("post_year");
-  postYear.innerHTML = article.start_year;
+  postYear.innerText = article.start_year + " - " + article.publisher;
 
   //<p> : le contenu de l'article
   let postContent = document.createElement("p");
   postContent.classList.add("post_content");
-  (postContent.innerText =
+  postContent.innerText =
     "Article publié a " +
     article.city +
     ", en " +
     article.start_year +
     " par " +
-    article.publisher),
-    "+ ",
+    article.publisher +
+    " " +
     article.note[0];
   // Le tout dans <article>
   post.appendChild(postTitle);
@@ -44,10 +45,7 @@ function generatePost(article) {
 
 // Générer une liste de posts (en intégrant les images)
 function generatePostsList(articles) {
-  // pour chaque item reçu dans handleResponse()
-  for (let i = 1; i < articles.items.length; i++) {
-    // Pour chaque élément du JSON:
-
+  for (let i = 1; i < 10; i++) {
     // <li> : Je génère une puce de la liste
     let listItem = document.createElement("li");
     listItem.classList.add("list_item");
@@ -66,8 +64,8 @@ function generatePostsList(articles) {
   }
 }
 
+// Pour rafraichir le feed: requête à l'API:
 document.getElementById("refresh_button").onclick = reload;
-//Pour rafraichir le feed: requête à l'API:
 function reload() {
   // fetch().then() peut aussi s'écrire avec asynch().await()
   fetch(src)
@@ -92,3 +90,5 @@ function reload() {
       )}`;
     });
 }
+
+// Ajouter un article:
