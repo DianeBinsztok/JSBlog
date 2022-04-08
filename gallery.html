@@ -4,16 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="carousel.css" />
-
-
-    <!--<script type="text/javascript" src="./node_modules/babel-polyfill/dist/polyfill.js"></script>
-    <script type="module" src="./node_modules/wikiquote-api/dist/WikiquoteApi.module.mjs"></script>-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="vanillascript.js" defer></script>
-    <script src="dropdownscript.js" defer></script>
-
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/carousel.css" />
     <title>Jeet Kune Do Blog</title>
 </head>
 
@@ -25,8 +17,8 @@
 
         <nav>
             <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                        height="24" viewBox="0 0 24 24">
+                <button id="dropbtn" class="dropbtn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24">
                         <path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z" />
                     </svg></button>
                 <div id="myDropdown" class="dropdown-content">
@@ -55,7 +47,10 @@
     <footer>
         <p>Diane Binsztok 2022 - Be water my friends!</p>
     </footer>
-    <script src="carousel.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./scripts/carouselScript.js"></script>
+    <script src="./scripts/dropdownScript.js"></script>
 </body>
 
 </html>
