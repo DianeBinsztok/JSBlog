@@ -1,9 +1,7 @@
+document.getElementById("dropbtn").onclick = dropDown;
+
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
-
-//document.getElementById("dropbtn").addEventListener("click", dropDown);
-document.getElementById("dropbtn").onclick=dropDown;
-
 function dropDown() {
     document.getElementById("myDropdown").classList.toggle("show");
   }

@@ -34,6 +34,7 @@ function generatePost(article) {
 }
 
 //Pour rafraichir le feed: requête à l'API:
+document.getElementById("refresh_button").onclick = reload;
 function reload() {
     // fetch().then() peut aussi s'écrire avec asynch().await()
     fetch(src).then(
