@@ -58,21 +58,22 @@ function generatePost(articleObject) {
 // Générer une liste de posts (en intégrant les images)
 function generatePostsList(articles) {
   for (let i = 1; i < 10; i++) {
-    // <li> : Je génère une puce de la liste
-    let listItem = document.createElement("li");
-    listItem.classList.add("list_item");
-
-    // Je génère un post
+    // Je génère un post item
+    let postItem = document.createElement("div");
+    postItem.classList.add("post_container");
+    // post content
     let newPostObject = cleanAPIData(articles.items[i]);
     let newPost = generatePost(newPostObject);
+    newPost.classList.add("post_content");
 
     // J'ajoute une image
     let postImg = document.createElement("img");
     postImg.setAttribute("src", `./img/${i}.jpg`);
-    // Je lie le tout à la puce
-    listItem.appendChild(postImg);
-    listItem.appendChild(newPost);
-    list.appendChild(listItem);
+
+    postItem.appendChild(postImg);
+    postItem.appendChild(newPost);
+    let vueContent = document.getElementById("content");
+    vueContent.prepend(postItem);
   }
 }
 

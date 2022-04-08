@@ -109,7 +109,7 @@ main {
   padding: 1em;
   margin-top: 1em;
 }
-.list_item {
+.post_container {
   justify-content: space-between;
   max-width: 90%;
   padding: 1em;
@@ -118,7 +118,7 @@ main {
   border-radius: 5px;
   background-color: rgba(255, 211, 16, 0.6);
 }
-.list_item img {
+.post_container img {
   display: block;
   align-items: center;
   max-width: 10em;
