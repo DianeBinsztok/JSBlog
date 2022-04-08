@@ -6,8 +6,28 @@ let content = document.getElementById("content");
 let list = document.createElement("ul");
 content.appendChild(list);
 
+// Récupérer data ds un objet
+function cleanAPIData(data) {
+  const article = {
+    title: data.city[0],
+    date: data.start_year,
+    author: data.publisher,
+    imgUrl: "",
+    content:
+      "Article publié a " +
+      data.city +
+      ", en " +
+      data.start_year +
+      " par " +
+      data.publisher +
+      " " +
+      data.note[0],
+  };
+  return article;
+}
+
 // Générer un post
-function generatePost(article) {
+function generatePost(articleObject) {
   //balise <article>
   let post = document.createElement("article");
   post.classList.add("post");
@@ -15,29 +35,23 @@ function generatePost(article) {
   //<h3> : titre de l'article
   let postTitle = document.createElement("h3");
   postTitle.classList.add("post_title");
-  postTitle.innerHTML = article.city[0];
+  postTitle.innerHTML = articleObject.title;
 
   //<h4> : sous-titre : date et auteur
-  let postYear = document.createElement("h4");
-  postYear.classList.add("post_year");
-  postYear.innerText = article.start_year + " - " + article.publisher;
+  let postSubtitle = document.createElement("h4");
+  postSubtitle.classList.add("post_year");
+  postSubtitle.innerText = articleObject.date + ", par " + articleObject.author;
 
   //<p> : le contenu de l'article
   let postContent = document.createElement("p");
   postContent.classList.add("post_content");
-  postContent.innerText =
-    "Article publié a " +
-    article.city +
-    ", en " +
-    article.start_year +
-    " par " +
-    article.publisher +
-    " " +
-    article.note[0];
+  postContent.innerText = articleObject.content;
   // Le tout dans <article>
+
   post.appendChild(postTitle);
-  post.appendChild(postYear);
+  post.appendChild(postSubtitle);
   post.appendChild(postContent);
+
   return post;
 }
 
@@ -49,12 +63,12 @@ function generatePostsList(articles) {
     listItem.classList.add("list_item");
 
     // Je génère un post
-    let newPost = generatePost(articles.items[i]);
+    let newPostObject = cleanAPIData(articles.items[i]);
+    let newPost = generatePost(newPostObject);
 
     // J'ajoute une image
     let postImg = document.createElement("img");
     postImg.setAttribute("src", `./img/${i}.jpg`);
-
     // Je lie le tout à la puce
     listItem.appendChild(postImg);
     listItem.appendChild(newPost);
