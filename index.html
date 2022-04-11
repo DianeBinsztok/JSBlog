@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/carousel.css" />
 
     <title>Jeet Kune Do Blog</title>
 </head>
@@ -33,6 +34,11 @@
         <div id="content_head">
             <h3>Here's my blog's content:</h3>
             <input id="refresh_button" type="button" value="Refresh feed" />
+        </div>
+        <div class="carousel_container">
+            <button id="left-btn"><i class="arrow"></i></button>
+            <img id="carousel" src="" alt="">
+            <button id="right-btn"><i class="arrow"></i></button>
         </div>
         <div id="content">
 
@@ -73,6 +79,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/newPostScript.js"></script>
+    <script src="./scripts/carouselScript.js"></script>
     <script src="./scripts/dropdownScript.js"></script>
 
 </body>

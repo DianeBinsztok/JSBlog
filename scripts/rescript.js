@@ -7,8 +7,6 @@ const post = {
 };
 
 function generatePost() {
-  // container .post_container
-
   //balise <article>
   let post = document.createElement("article");
   post.classList.add("post");

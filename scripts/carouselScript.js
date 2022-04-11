@@ -13,8 +13,6 @@ let pictures = [
   "./img/7.jpg",
 ];
 
-console.log(pictures[0]);
-
 img.src = pictures[0];
 let position = 0;
 

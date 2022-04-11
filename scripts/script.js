@@ -28,8 +28,6 @@ function cleanAPIData(data) {
 
 // Générer un post
 function generatePost(articleObject) {
-  // Je génère un post item
-
   //balise <article>
   let post = document.createElement("article");
   post.classList.add("post_container");
