@@ -1,0 +1,12 @@
+#gallery {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  max-width: 90%;
+  align-self: center;
+  margin: auto;
+  padding: 10px;
+}
