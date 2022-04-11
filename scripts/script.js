@@ -28,9 +28,11 @@ function cleanAPIData(data) {
 
 // Générer un post
 function generatePost(articleObject) {
+  // Je génère un post item
+
   //balise <article>
   let post = document.createElement("article");
-  post.classList.add("post");
+  post.classList.add("post_container");
 
   //<h3> : titre de l'article
   let postTitle = document.createElement("h3");
@@ -46,8 +48,8 @@ function generatePost(articleObject) {
   let postContent = document.createElement("p");
   postContent.classList.add("post_content");
   postContent.innerText = articleObject.content;
-  // Le tout dans <article>
 
+  // Le tout dans <article>
   post.appendChild(postTitle);
   post.appendChild(postSubtitle);
   post.appendChild(postContent);
@@ -58,22 +60,19 @@ function generatePost(articleObject) {
 // Générer une liste de posts (en intégrant les images)
 function generatePostsList(articles) {
   for (let i = 1; i < 10; i++) {
-    // Je génère un post item
-    let postItem = document.createElement("div");
-    postItem.classList.add("post_container");
     // post content
     let newPostObject = cleanAPIData(articles.items[i]);
     let newPost = generatePost(newPostObject);
-    newPost.classList.add("post_content");
+    //newPost.classList.add("post_content");
 
     // J'ajoute une image
     let postImg = document.createElement("img");
     postImg.setAttribute("src", `./img/${i}.jpg`);
 
-    postItem.appendChild(postImg);
-    postItem.appendChild(newPost);
+    newPost.prepend(postImg);
+    // postItem.appendChild(newPost);
     let vueContent = document.getElementById("content");
-    vueContent.prepend(postItem);
+    vueContent.prepend(newPost);
   }
 }
 
