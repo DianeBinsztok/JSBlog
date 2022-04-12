@@ -4,6 +4,7 @@ document.getElementById("publish_btn").onclick = controlNewPost;
 function controlNewPost() {
   // message d'erreur:
   let errorMsg = document.getElementById("error_message");
+  let errorText = document.getElementById("error_text");
 
   // date :
   let today = new Date();
@@ -23,7 +24,7 @@ function controlNewPost() {
   let title = document.getElementById("new_title");
   // title control:
   if (title.checkValidity() == false) {
-    errorMsg.innerText = "😕   Your title is missing or invalid";
+    errorText.innerText = "Your title is missing or invalid";
     errorMsg.classList.remove("hidden");
   } else {
     newPost.title = title.value;
@@ -33,7 +34,7 @@ function controlNewPost() {
   let name = document.getElementById("new_author");
   // name control:
   if (name.checkValidity() == false) {
-    errorMsg.innerText = "😕   Your name is missing or invalid";
+    errorText.innerText = "Your name is missing or invalid";
     errorMsg.classList.remove("hidden");
   } else {
     newPost.author = name.value;
@@ -43,7 +44,7 @@ function controlNewPost() {
   let imgUrl = document.getElementById("new_image");
   // imgUrl control:
   if (imgUrl.checkValidity() == false) {
-    errorMsg.innerText = "😕   Your image URL is missing or invalid";
+    errorText.innerText = "Your image URL is missing or invalid";
     errorMsg.classList.remove("hidden");
   } else {
     newPost.imgUrl = imgUrl.value;
@@ -53,7 +54,7 @@ function controlNewPost() {
   let content = document.getElementById("new_content");
   // content control:
   if (content.checkValidity() == false) {
-    errorMsg.innerText = "😕   Your content is missing or invalid";
+    errorText.innerText = "Your content is missing or invalid";
     errorMsg.classList.remove("hidden");
   } else {
     newPost.content = content.value;
@@ -84,4 +85,5 @@ function controlNewPost() {
     newPost.title = title;
   }
   */
+  console.log(newPost);
 }

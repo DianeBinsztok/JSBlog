@@ -35,6 +35,14 @@ function generatePost(articleObject) {
   postTitle.classList.add("post_title");
   postTitle.innerHTML = articleObject.title;
 
+  // balise <img>
+  let postImg = document.createElement("img");
+  if (!articleObject.imgUrl) {
+    postImg.setAttribute("src", "./img/2.jpg");
+  } else {
+    postImg.setAttribute("src", articleObject.imgUrl);
+  }
+
   //<h4> : sous-titre : date et auteur
   let postSubtitle = document.createElement("h4");
   postSubtitle.classList.add("post_year");
@@ -47,6 +55,7 @@ function generatePost(articleObject) {
 
   // Le tout dans <article>
   post.appendChild(postTitle);
+  post.appendChild(postImg);
   post.appendChild(postSubtitle);
   post.appendChild(postContent);
 
@@ -61,11 +70,6 @@ function generatePostsList(articles) {
     let newPost = generatePost(newPostObject);
     //newPost.classList.add("post_content");
 
-    // J'ajoute une image
-    let postImg = document.createElement("img");
-    postImg.setAttribute("src", `./img/${i}.jpg`);
-
-    newPost.prepend(postImg);
     // postItem.appendChild(newPost);
     let vueContent = document.getElementById("content");
     vueContent.prepend(newPost);

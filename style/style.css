@@ -148,6 +148,10 @@ main {
   margin-bottom: 1em;
 }
 
+#error_message img {
+  max-width: 500px;
+}
+
 #new_article .hidden {
   display: none;
 }
