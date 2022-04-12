@@ -137,6 +137,21 @@ main {
   flex-direction: column;
 }
 
+/*Message d'erreur :*/
+#error_message {
+  color: red;
+  border: 1px solid red;
+  border-radius: 5px;
+  background-color: rgb(255, 75, 75, 0.3);
+  padding: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#new_article .hidden {
+  display: none;
+}
+
 #new_article_title_container {
   background-color: rgba(255, 211, 16, 0.6);
   margin-bottom: 10px;

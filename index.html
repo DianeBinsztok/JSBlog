@@ -48,25 +48,26 @@
             <div id="new_article_title_container">
                 <h4 id="new_article_title">Add an article:</h4>
             </div>
-
+            <div id="error_message" class="hidden">Ceci est un test de message d'erreur</div>
             <input type="hidden" name="date" value="date">
 
             <div class="input_container">
                 <label for="author_name">Your name or alias:</label>
-                <input type="text" id="new_author" name="author_name" required minlength="1" maxlength="50" size="10">
+                <input type="text" id="new_author" name="author_name" required minlength="1" maxlength="50" size="10"
+                    required>
             </div>
 
             <div class="input_container">
                 <label for="title">Your article's title:</label>
-                <input type="text" id="new_title" name="title" required minlength="1" maxlength="50" size="10">
+                <input type="text" id="new_title" name="title" minlength="1" maxlength="50" size="10" required>
             </div>
             <div class="input_container">
                 <label for="image">Your image's url:</label>
-                <input type="text" id="new_image" name="image" required minlength="1" maxlength="50" size="10">
+                <input type="url" id="new_image" name="image" minlength="1" maxlength="50" size="10" required>
             </div>
             <div id="textarea_container" class="input_container">
                 <label for="article">Your content:</label>
-                <textarea id="new_content" name="content" rows="5" cols="33"></textarea>
+                <textarea id="new_content" type="text" name="content" rows="5" cols="33" required></textarea>
             </div>
             <input id="publish_btn" type="submit" value="publish">
         </div>

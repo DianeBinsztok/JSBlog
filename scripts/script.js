@@ -3,8 +3,6 @@ const src =
 
 // Placer le contenu du feed dans la vue
 let content = document.getElementById("content");
-let list = document.createElement("ul");
-content.appendChild(list);
 
 // Récupérer data ds un objet
 function cleanAPIData(data) {

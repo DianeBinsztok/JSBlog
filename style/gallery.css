@@ -18,6 +18,7 @@
 }
 .mosaic .image {
   width: 45%;
+  height: 45%;
   align-self: center;
   margin: auto;
   padding: 10px;
