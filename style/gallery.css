@@ -1,12 +1,31 @@
-#gallery {
+.vertical {
   align-items: center;
   display: flex;
   flex-direction: column;
 }
 
-.image {
+.mosaic {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.vertical .image {
   max-width: 90%;
   align-self: center;
   margin: auto;
   padding: 10px;
+}
+.mosaic .image {
+  width: 45%;
+  align-self: center;
+  margin: auto;
+  padding: 10px;
+}
+
+#display_btn {
+  background-color: rgba(255, 211, 16);
+  padding: 10px;
+  align-self: center;
+  margin: 10px;
 }
