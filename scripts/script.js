@@ -4,24 +4,15 @@ const src =
 // Placer le contenu du feed dans la vue
 let content = document.getElementById("content");
 
-// Récupérer data ds un objet
-function cleanAPIData(data) {
-  const article = {
-    title: data.city[0],
-    date: data.start_year,
-    author: data.publisher,
-    imgUrl: "",
-    content:
-      "Article publié a " +
-      data.city +
-      ", en " +
-      data.start_year +
-      " par " +
-      data.publisher +
-      " " +
-      data.note[0],
-  };
-  return article;
+// Le format de chaque article
+class Article {
+  constructor(newTitle, newDate, newAuthor, newImgURL, newContent) {
+    (this.title = newTitle),
+      (this.date = newDate),
+      (this.author = newAuthor),
+      (this.imgUrl = newImgURL),
+      (this.content = newContent);
+  }
 }
 
 // Générer un post
@@ -55,9 +46,10 @@ function generatePost(articleObject) {
 
 // Générer une liste de posts (en intégrant les images)
 function generatePostsList(articles) {
+  console.log("generatePostsList handles articleObject: ", articles);
   for (let i = 1; i < 10; i++) {
     // post content
-    let newPostObject = cleanAPIData(articles.items[i]);
+    let newPostObject = cleanAPIData(articles.items[i], article);
     let newPost = generatePost(newPostObject);
     //newPost.classList.add("post_content");
 
@@ -73,23 +65,31 @@ function generatePostsList(articles) {
 }
 
 // Pour rafraichir le feed: requête à l'API:
-document.getElementById("refresh_button").onclick = reload;
-function reload() {
+document.getElementById("refresh_button").onclick = requestAPI;
+
+function requestAPI() {
   // fetch().then() peut aussi s'écrire avec asynch().await()
   fetch(src)
     .then(function handleResponse(response) {
+      console.log(response);
       // renvoie une promesse: pas encore un résultat
       if (!response.ok) {
         throw new Error(
           `Erreur ${response.status}: La requête à l' API a échoué.`
         );
       } else {
+        // reponse est encore une promesse à ce stade
+        console.log("réponse de l'api", response);
         return response.json();
       }
     })
     .then(
-      // récupère le retour du .then() précédent: doit être un .json()
-      generatePostsList
+      (data) => {
+        cleanAPIData(data, article);
+      }
+      // quand la promesse est tenue: récupère le retour du .then() précédent: doit être un .json()
+      //console.log("When promise in resolved: ", response.json())
+      //generatePostsList
     )
     .catch(function handleError(error) {
       let failMsg = document.createElement("h3");
@@ -97,6 +97,29 @@ function reload() {
         error
       )}`;
     });
+}
+
+// Remplir l'objet avec les données reçues de l'API
+function cleanAPIData(data) {
+  let article = {
+    title: data.city[0],
+  };
+  console.log("cleanAPIData returns articleObject: ", data, articleObject);
+  articleObject.title = data.city[0];
+  articleObject.date = data.start_year;
+  articleObject.author = data.publisher;
+  articleObject.imgUrl = "";
+  articleObject.content =
+    "Article publié a " +
+    data.city +
+    ", en " +
+    data.start_year +
+    " par " +
+    data.publisher +
+    " " +
+    data.note[0];
+
+  return articleObject;
 }
 
 // Ajouter un article:
