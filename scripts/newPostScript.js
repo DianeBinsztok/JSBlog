@@ -45,23 +45,14 @@ function controlNewPost() {
 
   // 3 - Si tous les inputs sont valides, générer un post et l'afficher
 
-  if (errorMsg.className == "hidden") {
+  if (
+    name.checkValidity() &&
+    title.checkValidity() &&
+    imgUrl.checkValidity() &&
+    content.checkValidity()
+  ) {
+    errorMsg.classList.add("hidden");
     let vueContent = document.getElementById("content");
     vueContent.prepend(generatePost(newPost));
   }
-
-  /* tests plus avancés
-  let title = document.getElementById("new_title");
-
-  if (title == "" || title == " ") {
-    console.log("title value is empty");
-    console.log(postObject.title);
-  } else if (title === null) {
-    console.log("title value is null");
-  } else if (typeof title == "undefined") {
-    console.log("title value is undefined");
-  } else {
-    newPost.title = title;
-  }
-  */
 }
