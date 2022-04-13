@@ -1,7 +1,8 @@
 // On click on the "publish" button:
 document.getElementById("publish_btn").onclick = controlNewPost;
 
-function controlNewPost() {
+function controlNewPost(e) {
+  console.log(e);
   // message d'erreur:
   let errorMsg = document.getElementById("error_message");
   let errorText = document.getElementById("error_text");
