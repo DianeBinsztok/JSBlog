@@ -37,7 +37,6 @@ function loopOnArray() {
     imageId = 1;
   } else {
     imageId++;
-    console.log(imageId);
   }
 
   return imageId;
