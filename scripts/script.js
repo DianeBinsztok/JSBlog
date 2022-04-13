@@ -24,6 +24,24 @@ function cleanAPIData(data) {
   return article;
 }
 
+// Gestion des images;
+const images = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
+  23, 24, 25, 26, 27, 28, 29, 30, 31,
+];
+let imageId = 0;
+
+// Loop sur les images
+function loopOnArray() {
+  if (imageId == images.length - 1) {
+    imageId = 1;
+  } else {
+    imageId++;
+  }
+
+  return imageId;
+}
+
 // Générer un post
 function generatePost(articleObject) {
   //balise <article>
@@ -34,6 +52,14 @@ function generatePost(articleObject) {
   let postTitle = document.createElement("h3");
   postTitle.classList.add("post_title");
   postTitle.innerHTML = articleObject.title;
+
+  // balise <img>
+  let postImg = document.createElement("img");
+  if (!articleObject.imgUrl) {
+    postImg.setAttribute("src", `./img/${loopOnArray(images, imageId)}.jpg`);
+  } else {
+    postImg.setAttribute("src", articleObject.imgUrl);
+  }
 
   //<h4> : sous-titre : date et auteur
   let postSubtitle = document.createElement("h4");
@@ -47,6 +73,7 @@ function generatePost(articleObject) {
 
   // Le tout dans <article>
   post.appendChild(postTitle);
+  post.appendChild(postImg);
   post.appendChild(postSubtitle);
   post.appendChild(postContent);
 
@@ -61,11 +88,6 @@ function generatePostsList(articles) {
     let newPost = generatePost(newPostObject);
     //newPost.classList.add("post_content");
 
-    // J'ajoute une image
-    let postImg = document.createElement("img");
-    postImg.setAttribute("src", `./img/${i}.jpg`);
-
-    newPost.prepend(postImg);
     // postItem.appendChild(newPost);
     let vueContent = document.getElementById("content");
     vueContent.prepend(newPost);

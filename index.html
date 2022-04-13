@@ -48,7 +48,12 @@
             <div id="new_article_title_container">
                 <h4 id="new_article_title">Add an article:</h4>
             </div>
-            <div id="error_message" class="hidden">Ceci est un test de message d'erreur</div>
+
+            <div id="error_message" class="hidden">
+                <img
+                    src="https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fc.tenor.com%2FbMOmonyLnIwAAAAC%2Fbrucelee-no.gif">
+                <p id="error_text"></p>
+            </div>
             <input type="hidden" name="date" value="date">
 
             <div class="input_container">
@@ -63,7 +68,7 @@
             </div>
             <div class="input_container">
                 <label for="image">Your image's url:</label>
-                <input type="url" id="new_image" name="image" minlength="1" maxlength="50" size="10" required>
+                <input type="url" id="new_image" name="image" minlength="1" size="10" required>
             </div>
             <div id="textarea_container" class="input_container">
                 <label for="article">Your content:</label>

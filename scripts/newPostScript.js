@@ -4,6 +4,7 @@ document.getElementById("publish_btn").onclick = controlNewPost;
 function controlNewPost() {
   // message d'erreur:
   let errorMsg = document.getElementById("error_message");
+  let errorText = document.getElementById("error_text");
 
   // date :
   let today = new Date();
@@ -19,53 +20,32 @@ function controlNewPost() {
     content: "",
   };
 
-  // title :
+  // 1 - Fonction de contrôle d'un input:
+
+  function inputControl(target, targetName) {
+    if (target.checkValidity() == false) {
+      errorText.innerText = `Your ${targetName} is missing or invalid`;
+      errorMsg.classList.remove("hidden");
+    } else {
+      console.log(target.value);
+      return target.value;
+    }
+  }
+
+  // 2 - Appliquer le contrôle sur chaque input
+
   let title = document.getElementById("new_title");
-  // title control:
-  if (title.checkValidity() == false) {
-    errorMsg.innerText = "😕   Your title is missing or invalid";
-    errorMsg.classList.remove("hidden");
-  } else {
-    newPost.title = title.value;
-  }
-
-  // name :
+  newPost.title = inputControl(title, "title");
   let name = document.getElementById("new_author");
-  // name control:
-  if (name.checkValidity() == false) {
-    errorMsg.innerText = "😕   Your name is missing or invalid";
-    errorMsg.classList.remove("hidden");
-  } else {
-    newPost.author = name.value;
-  }
-
-  // image's URL:
+  newPost.author = inputControl(name, "name");
   let imgUrl = document.getElementById("new_image");
-  // imgUrl control:
-  if (imgUrl.checkValidity() == false) {
-    errorMsg.innerText = "😕   Your image URL is missing or invalid";
-    errorMsg.classList.remove("hidden");
-  } else {
-    newPost.imgUrl = imgUrl.value;
-  }
-
-  // content :
+  newPost.imgUrl = inputControl(imgUrl, "image Url");
   let content = document.getElementById("new_content");
-  // content control:
-  if (content.checkValidity() == false) {
-    errorMsg.innerText = "😕   Your content is missing or invalid";
-    errorMsg.classList.remove("hidden");
-  } else {
-    newPost.content = content.value;
-  }
+  newPost.content = inputControl(content, "content");
 
-  if (
-    name.checkValidity() &&
-    title.checkValidity() &&
-    imgUrl.checkValidity() &&
-    content.checkValidity()
-  ) {
-    errorMsg.classList.add("hidden");
+  // 3 - Si tous les inputs sont valides, générer un post et l'afficher
+
+  if (errorMsg.className == "hidden") {
     let vueContent = document.getElementById("content");
     vueContent.prepend(generatePost(newPost));
   }
